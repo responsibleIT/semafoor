@@ -12,3 +12,5 @@
 - Hertrain indien nodig  
 - Exporteer het model  
 - Maak foto’s en filmpjes voor je productbiografie
+
+### [Toelichting van de opdracht staat hier](https://github.com/responsibleIT/semafoor/releases/download/PDF-V_1.0.0/Experimenteren_Houdingen.pdf)
