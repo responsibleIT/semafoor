@@ -1,0 +1,71 @@
+/* States */
+
+.container[data-status] {
+  --container-height: 400px;
+  container-type: size;
+
+  height: var(--container-height);
+  display: flex;
+
+  canvas {
+    background: black;
+    background: linear-gradient(
+    180deg, /* Vertical gradient */
+    rgba(0, 0, 0, 1) 33%,
+    rgba(56, 56, 56, 1) 39%,
+    rgba(0, 0, 0, 1) 45%
+  );
+  background-size: 100% 200%;
+  animation: shimmer 1s infinite linear;
+    width: var(--container-height);
+    aspect-ratio: 1/1;
+    view-transition-name: canvas;
+    display: block;
+  }
+
+  p {
+    font-size: clamp(1rem, 25vw, 50cqw);
+    line-height: 1;
+
+    &:last-of-type {
+      opacity: 0.5;
+    }
+  }
+}
+
+.display {
+  .interactie {
+    overflow-y: hidden;
+    overflow-y: clip;
+    width: 100vw;
+    font-size: clamp(1rem, 10vw, 100vw);
+
+    span {
+      font-size: inherit;
+      transition: color 0.2s ease-in;
+      color: inherit;
+
+      &:last-of-type {
+        display: inline-block;
+        transform: translateY(-100%);
+        animation: slide-in 0.2s ease-out forwards;
+      }
+    }
+  }
+}
+
+@keyframes slide-in {
+  to {
+    transform: translateY(0);
+    color: var(--accent);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0 -100%;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}

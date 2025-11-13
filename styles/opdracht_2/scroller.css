@@ -1,0 +1,55 @@
+body[data-theme="1"] {
+  --custom-bg: var(--primary);
+  background: red;
+}
+
+body[data-theme="2"] {
+  --custom-bg: rgb(91, 255, 211);
+  background: var(--accent);
+}
+
+main {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+
+  .elem1,
+  .elem2 {
+    aspect-ratio: 1/1;
+    height: 25%;
+
+    &::before {
+      content: "";
+      display: block;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: var(--custom-bg, var(--secondary));
+      will-change: transform;
+    }
+  }
+
+  .elem2 {
+    animation: right-left 1s ease-out forwards;
+
+    &::before {
+      transform: translateY(calc(100vh - 100%));
+
+      animation: up-down 1s ease-in forwards;
+    }
+  }
+}
+
+@keyframes right-left {
+  to {
+    transform: translateX(calc(100% - 100vw));
+  }
+}
+
+@keyframes up-down {
+  to {
+    transform: translateY(0);
+  }
+}

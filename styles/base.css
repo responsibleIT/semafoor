@@ -38,32 +38,3 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-canvas {
-  view-transition-name: canvas;
-  display: block;
-}
-
-/* States */
-
-.container[data-status] {
-  --container-height: 400px;
-  container-type: size;
-
-  height: var(--container-height);
-  display: flex;
-
-  canvas {
-    background: black;
-    width: var(--container-height);
-    aspect-ratio: 1/1;
-  }
-
-  p {
-    font-size: clamp(1rem, 25vw, 50cqw);
-    line-height: 1;
-
-    &:last-of-type {
-      opacity: 0.5;
-    }
-  }
-}
