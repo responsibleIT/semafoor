@@ -23,15 +23,15 @@ const init = async () => {
       
     }
 
-    // Convenience function to setup a webcam
+    // Hoe groot hoort het canvas te zijn
     const size = 400;
-    const flip = true; // whether to flip the webcam
-    webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
-    await webcam.setup(); // request access to the webcam
+    // Flipt de camera
+    const flip = true;
+    webcam = new tmPose.Webcam(size, size, flip);
+    await webcam.setup();
     await webcam.play();
     window.requestAnimationFrame(loop);
 
-    // append/get elements to the DOM
     const canvas = document.querySelector("canvas");
     canvas.width = size;
     canvas.height = size;
@@ -51,6 +51,7 @@ const init = async () => {
   }
 };
 
+// Hier wordt bepaald welke letter wordt uitgebeeld
 const loop = async (timestamp) => {
   webcam.update(); // update the webcam frame
   await drawPose();
@@ -75,23 +76,25 @@ const predict = async () => {
   InteractieSpeller(predictedLetter)
 };
 
-let previousLetter = ""; // Store the previous letter globally
+// Hier slaan we de letter globaal op
+// Globaal houdt in dat alle functies deze kunnen gebruiken
+let previousLetter = "";
 
 const spellIt = (letter) => {
   if (letter !== previousLetter) {
-    // Only update if the letter has changed
+    
     const previousElement = document.querySelector(".previous");
     if (previousElement) {
-      previousElement.innerHTML = previousLetter; // Show the previous letter
+      previousElement.innerHTML = previousLetter;
     }
     if (document.startViewTransition) {
       document.startViewTransition(() => {
-        letterContainer.innerHTML = letter; // Show the current letter
-        previousLetter = letter; // Update the previous letter
+        letterContainer.innerHTML = letter;
+        previousLetter = letter;
       });
     } else {
-      letterContainer.innerHTML = letter; // Show the current letter
-      previousLetter = letter; // Update the previous letter
+      letterContainer.innerHTML = letter;
+      previousLetter = letter;
     }
   }
 };
@@ -125,7 +128,7 @@ const InteractieSpeller = (letter) => {
     span.textContent = expectedLetter;
     interactieBox.appendChild(span);
 
-    interactieCount++; // Move to the next letter
+    interactieCount++;
     return `Correct! Next letter: ${interactieCount < interactie.length ? interactie[interactieCount] : "All done!"}`;
   } else {
     return `Wrong! The expected letter is "${expectedLetter}". Try again.`;
