@@ -53,8 +53,67 @@ main {
   }
 }
 
-main .interactables {
-  /* Hier staan de elementen die je kan aanpassen */
+main .scaler {
+  transform-origin: left;
+}
+
+main .scaler::before {
+  background: #ff0000;
+}
+
+main .scaler[data-animated="true"] {
+  transform: scale(2.5);
+}
+
+main .slider {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  transform: translate(calc(50vw - 100%), calc(50vh - 100%));
+}
+
+main .slider::before {
+  background: #0000ff;
+}
+
+main .slider[data-animated="true"] {
+  transform: translate(-50%, -80%);
+}
+
+main .grower {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0) rotate(0);
+}
+
+main .grower::before {
+  background: #00ff00;
+}
+
+main .grower[data-animated="true"] {
+  transform: translate(-50%, -50%) scale(1.5) rotate(135deg);
+}
+
+main .shaper {
+  mix-blend-mode: normal;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  corner-shape: superellipse(0.3);
+  overflow: hidden;
+  transition: border-radius 0.75s;
+}
+
+main .shaper::before {
+  background: black;
+}
+
+main .shaper[data-animated="true"] {
+  border-radius: 50%;
+}
+
+/* Geavanceerd! Goed om dit later te kennen */
+/* main .interactables {
   &.scaler {
     transform-origin: left;
     &::before {
