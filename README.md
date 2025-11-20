@@ -16,6 +16,7 @@
 > Hertrain indien nodig
 - Exporteer het model
   - Hier krijg je een linkje uit; plak deze in `/script/semafoor.js` op **lijn 2**
+- Om het project op te starten pak je [het zipje](https://github.com/responsibleIT/semafoor/blob/main/semafoor.zip) uit en gebruik je de `go live` knop rechts-onderin
 - Maak foto’s en filmpjes voor je productbiografie
 
 ### [Toelichting van de opdracht staat hier](https://github.com/responsibleIT/semafoor/releases/download/PDF-V_1.0.0/Experimenteren_Houdingen.pdf)
