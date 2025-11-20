@@ -6,7 +6,9 @@
 - Ga naar https://teachablemachine.withgoogle.com/
 - Start een nieuw project, kies: **`Project met houdingen`**
 - Maak 7 classes, noem ze A, C, E, I, N, R, T 
-- Bedenk unieke lichaamshoudingen voor elke letter; 
+- Bedenk unieke lichaamshoudingen voor elke letter;
+> [!tip]
+> Neem genoeg afstand van de camera om volledig op beeld te staan
 - Neem ±100 beelden per letter op;  
 - Train het ML model;
 - Test het model door de geluiden af te spelen, kijk of dit consistent werkt.
