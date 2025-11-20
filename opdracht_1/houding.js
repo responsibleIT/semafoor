@@ -15,8 +15,13 @@ const init = async () => {
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
     // Note: the pose library adds a tmPose object to your window (window.tmPose)
-    model = await tmPose.load(modelURL, metadataURL);
-    maxPredictions = model.getTotalClasses();
+    try {
+      model = await tmPose.load(modelURL, metadataURL);
+      maxPredictions = model.getTotalClasses();
+    } catch (error) {
+      console.log("Heb je wel je URL aangepast?");
+      
+    }
 
     // Convenience function to setup a webcam
     const size = 400;
