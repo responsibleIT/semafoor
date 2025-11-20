@@ -1,4 +1,5 @@
 # Semafoor
+[Download het project hier](https://github.com/responsibleIT/semafoor/blob/main/semafoor.zip)
 
 ## Opdrachtomschrijving
 ### Maak een team met max. 4 studenten.
