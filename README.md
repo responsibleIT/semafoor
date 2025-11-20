@@ -11,7 +11,7 @@
 > Neem genoeg afstand van de camera om volledig op beeld te staan
 - Neem ±100 beelden per letter op;  
 - Train het ML model;
-- Test het model door de geluiden af te spelen, kijk of dit consistent werkt.
+- Test het model door met de houdingen te spelen, kijk of dit consistent werkt.
 > [!warning]
 > Hertrain indien nodig
 - Exporteer het model
