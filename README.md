@@ -7,10 +7,12 @@
 - Maak 7 classes, noem ze A, C, E, I, N, R, T 
 - Bedenk unieke lichaamshoudingen voor elke letter; 
 - Neem ±100 beelden per letter op;  
-- Train het ML model;  
-- Test het model door het woord interactie te spellen met behulp van lichaamsbeweging, 
-- Hertrain indien nodig  
-- Exporteer het model  
+- Train het ML model;
+- Test het model door de geluiden af te spelen, kijk of dit consistent werkt.
+> [!warning]
+> Hertrain indien nodig
+- Exporteer het model
+  - Hier krijg je een linkje uit; plak deze in `/script/semafoor.js` op **lijn 2**
 - Maak foto’s en filmpjes voor je productbiografie
 
 ### [Toelichting van de opdracht staat hier](https://github.com/responsibleIT/semafoor/releases/download/PDF-V_1.0.0/Experimenteren_Houdingen.pdf)
