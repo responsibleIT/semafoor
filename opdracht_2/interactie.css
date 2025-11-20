@@ -11,7 +11,7 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    transition: transform 0.8s /* Dit is een custom ease */
+    transition: transform 1s /* Dit is een custom ease */
         linear(
           0,
           0.03 1.1%,
@@ -110,7 +110,7 @@ main .interactables {
     }
 
     &[data-animated="true"] {
-        border-radius: 50%;
+      border-radius: 50%;
     }
   }
-}
+} */
