@@ -1,40 +1,42 @@
 // more documentation available at
 // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
 
-// the link to your model provided by Teachable Machine export panel
+// PLAK HIER DE LINK NAAR JE MODEL
 const URL = "https://teachablemachine.withgoogle.com/models/ytj_eWCtE/";
 
 async function createModel() {
-  const checkpointURL = URL + "model.json"; // model topology
-  const metadataURL = URL + "metadata.json"; // model metadata
+  const checkpointURL = URL + "model.json";
+  const metadataURL = URL + "metadata.json";
 
   const recognizer = speechCommands.create(
-    "BROWSER_FFT", // fourier transform type, not useful to change
-    undefined, // speech commands vocabulary feature, not useful for your models
+    "BROWSER_FFT",
+    undefined,
     checkpointURL,
     metadataURL
   );
 
-  // check that model and metadata are loaded via HTTPS requests.
   await recognizer.ensureModelLoaded();
 
   return recognizer;
 }
 
 const init = async () => {
-  // cooldown between triggers in ms
+  // Cooldown tussen triggers
   const COOLDOWN = 1000;
-  // threshold for sound probability
+
+  // Geluids drempel
   const SOUND_PROBABILITY = 0.7;
 
   const recognizer = await createModel();
 
   const elementList = document.querySelectorAll("[data-animated]");
   const animatedElements = Array.from(elementList);
-  const [, ...actualSounds] = recognizer.wordLabels(); // skip background
+
+  // Hiermee skippen we background noise
+  const [, ...actualSounds] = recognizer.wordLabels();
   const minLength = Math.min(actualSounds.length, animatedElements.length);
 
-  // map each sound to its element and store last trigger timestamp
+  // We mappen hier elk geluid aan elk element
   const soundMap = actualSounds.slice(0, minLength).map((label, i) => ({
     label,
     element: animatedElements[i],
@@ -42,13 +44,17 @@ const init = async () => {
     triggered: false,
   }));
 
+  // Luisteren naar geluid...
   recognizer.listen(
     (result) => {
+      // Scores per geluid
       const scores = result.scores;
 
+      // Voor elk gegroepeerde item
       soundMap.forEach((soundObj, i) => {
         const now = Date.now();
-        // +1 to skip background in scores
+        // Met +1 skippen we hier background noise weer
+        // Ook checken we of het geluid over de drempel komt & of er een cooldown is
         if (
           scores[i + 1] > SOUND_PROBABILITY &&
           !soundObj.triggered &&
